@@ -1,32 +1,32 @@
 def main():
-    print('=== IDENTIFICADOR DE NÚMEROS BILÍNGUES ===')
+    print('=== IDENTIFICADOR DE NÚMEROS BILÍNGUES ===') 
     b = int(input('Insira uma base b (1<b<10): '))
     n = input(f'Insira um número inteiro escrito na base {b}: ')
     n = muda_decimal(n, b)
+    
     contador = 2
     bilingue = False
+    
     while contador < 10:
         contador_compara = contador + 1
         while contador_compara < 10:
             igual = True
-            if contador != contador_compara:
-                n1 = muda_base(n, contador)
-                n2 = muda_base(n, contador_compara)
-                for i in range(len(n1)):
-                    if n1[i] not in n2:
-                        igual = False
-                for i in range(len(n2)):
-                    if n2[i] not in n1:
-                        igual = False
-                if igual:
-                    if bilingue == False:
-                        print(f'O número {n} é bilíngue nas seguintes bases:')
-                        bilingue = True
-                        print(f'- {contador} e {contador_compara}')
-                    else:
-                        print(f'- {contador} e {contador_compara}')
+            n1 = muda_base(n, contador)
+            n2 = muda_base(n, contador_compara)
+            for i in range(len(n1)):
+                if n1[i] not in n2: # se qualquer algarismo não for igual, altera o bool "igual" para False
+                    igual = False
+            for i in range(len(n2)):
+                if n2[i] not in n1: # se qualquer algarismo não for igual, altera o bool "igual" para False
+                    igual = False
+            if igual: # se não foi encontrado nenhum algarismo diferente, então o número é bilíngue naquelas duas bases
+                if bilingue == False:
+                    print(f'O número {n} é bilíngue nas seguintes bases:') # esse print ocorre apenas na primeira vez em que se descobre que o número é bilíngue
+                    bilingue = True
+                print(f'- {contador} e {contador_compara}')
             contador_compara += 1
         contador += 1
+        
     if bilingue == False:
         print(f'O número {n} não é bilíngue')
 
