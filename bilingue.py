@@ -31,28 +31,20 @@ def main():
         print(f'O número {n} não é bilíngue')
 
 def muda_base(n, b):
-    final = False
     num_base_b = 0
-    resto = 0
     contador = 0
-    while final == False:
+    while n > 0:
         resto = n % b
         n = n // b
-        if n == 0:
-            final = True
         num_base_b += resto * 10 ** contador
         contador += 1
-    num_base_b = str(num_base_b)
-    return num_base_b 
+    return str(num_base_b) 
     
 def muda_decimal(num_base_b, b):
-    contador = 0
     num_base_decimal = 0
-    while contador < (len(num_base_b)):
-        n = int(num_base_b[contador])
-        if n > 0:
-            num_base_decimal += n * b ** (len(num_base_b) - contador - 1)
-        contador += 1
+    for i in range(len(num_base_b)):
+        n = int(num_base_b[i])
+        num_base_decimal += n * b ** (len(num_base_b) - i - 1)
     return num_base_decimal
 
 main()
