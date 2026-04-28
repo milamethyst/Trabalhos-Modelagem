@@ -7,6 +7,10 @@ def main():
     contador = 2
     bilingue = False
     
+    print(f'\n== Número {n} ==') # print do número em todas as bases
+    for i in range(2, 10):
+        print(f'Na base {i}: {muda_base(n, i)}')
+        
     while contador < 10:
         contador_compara = contador + 1
         while contador_compara < 10:
@@ -21,14 +25,14 @@ def main():
                     igual = False
             if igual: # se não foi encontrado nenhum algarismo diferente, então o número é bilíngue naquelas duas bases
                 if bilingue == False:
-                    print(f'O número {n} é bilíngue nas seguintes bases:') # esse print ocorre apenas na primeira vez em que se descobre que o número é bilíngue
+                    print('\nEste número é bilíngue nas seguintes bases:') # esse print ocorre apenas na primeira vez em que se descobre que o número é bilíngue
                     bilingue = True
-                print(f'- {contador} ({n1}) e {contador_compara} ({n2})') # exibe a base e o número naquela base entre parênteses
+                print(f'- {contador} e {contador_compara}') # exibe a base e o número naquela base entre parênteses
             contador_compara += 1
         contador += 1
         
     if bilingue == False:
-        print(f'O número {n} não é bilíngue')
+        print('\nEste número não é bilíngue')
 
 def muda_base(n, b):
     num_base_b = 0
