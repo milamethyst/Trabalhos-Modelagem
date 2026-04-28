@@ -23,7 +23,7 @@ def main():
                 if bilingue == False:
                     print(f'O número {n} é bilíngue nas seguintes bases:') # esse print ocorre apenas na primeira vez em que se descobre que o número é bilíngue
                     bilingue = True
-                print(f'- {contador} e {contador_compara}')
+                print(f'- {contador} ({n1}) e {contador_compara} ({n2})') # exibe a base e o número naquela base entre parênteses
             contador_compara += 1
         contador += 1
         
